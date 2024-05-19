@@ -1,5 +1,6 @@
 import { ReactNode, createContext, useEffect, useRef, useState } from 'react';
 import { TabName, MemberData, MemberStatus, User } from '../types/stateTypes';
+import { memberSorter } from '../utils/members';
 
 type DataContextProps = {
   activeTab: TabName;
@@ -91,14 +92,4 @@ export function DataProvider({ children }: { children: ReactNode }) {
       {children}
     </DataContext.Provider>
   );
-}
-
-function memberSorter([, a]: [string, User], [, b]: [string, User]) {
-  if (a.first < b.first) {
-    return -1;
-  }
-  if (a.first > b.first) {
-    return 1;
-  }
-  return 0;
 }

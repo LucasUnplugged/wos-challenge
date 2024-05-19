@@ -63,7 +63,14 @@ export function DataProvider({ children }: { children: ReactNode }) {
       const signal = controller.current.signal;
 
       try {
-        const response = await fetch('https://front-end-code-challenge.stephenbuilds.workers.dev', { signal });
+        const response = await fetch('https://wos-challenge-api.onrender.com', {
+          signal,
+          headers: {
+            authorization: 'Bearer undefined',
+            'Target-Endpoint': 'https://front-end-code-challenge.stephenbuilds.workers.dev',
+            'Target-URL': 'https://front-end-code-challenge.stephenbuilds.workers.dev',
+          },
+        });
         const data: { users: Record<string, User> } = await response.json();
 
         const memberStatus: MemberStatus = {};

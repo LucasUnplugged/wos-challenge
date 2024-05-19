@@ -63,7 +63,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
       const signal = controller.current.signal;
 
       try {
-        const response = await fetch('api', { signal });
+        const response = await fetch('https://front-end-code-challenge.stephenbuilds.workers.dev', { signal });
         const data: { users: Record<string, User> } = await response.json();
 
         const memberStatus: MemberStatus = {};

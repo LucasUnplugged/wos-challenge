@@ -23,7 +23,11 @@ export function Header() {
     >
       <Logo />
       <Row.Nav css={{ gap: '$32', alignItems: 'center' }}>
-        <Button hasIconOnly onClick={toggleColorMode}>
+        <Button
+          hasIconOnly
+          onClick={toggleColorMode}
+          aria-label={isDark ? 'Change to light mode' : 'Change to dark mode'}
+        >
           {isDark ? <SunIcon /> : <MoonIcon />}
         </Button>
       </Row.Nav>

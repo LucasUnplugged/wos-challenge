@@ -1,13 +1,19 @@
 import { Column, FlexList, FlexListItem } from '@withneutron/quarks-react';
-import { useData } from '../../hooks/useData';
 import { tabList } from '../../utils/tabs';
 import { token } from '@withneutron/quarks';
-import { MemberList } from '../MemberList';
 import { TabButton } from '../TabButton';
+import { ReactNode } from 'react';
+import { TabName } from '../../types/stateTypes';
 
-export function Body() {
-  const { activeTab, setActiveTab } = useData();
-
+export function Body({
+  children,
+  activeTab,
+  setActiveTab,
+}: {
+  children: ReactNode;
+  activeTab: TabName;
+  setActiveTab: (tab: TabName) => void;
+}) {
   return (
     <Column css={{ p: { base: '$20', xs: '$12' } }}>
       <Column css={{ bg: '$tertiary1', radius: '$8', boxShadow: '$low' }}>
@@ -22,15 +28,17 @@ export function Body() {
         >
           {tabList.map(([tab, title]) => (
             <FlexListItem key={tab}>
-              <TabButton isActive={activeTab === tab} onClick={() => setActiveTab(tab)}>
+              <TabButton
+                isActive={activeTab === tab}
+                aria-description={`Tab "${title}" is ${activeTab === tab ? 'selected' : 'not selected'}`}
+                onClick={() => setActiveTab(tab)}
+              >
                 {title}
               </TabButton>
             </FlexListItem>
           ))}
         </FlexList>
-        <Column css={{ p: { base: '$16', xs: '$12' } }}>
-          <MemberList />
-        </Column>
+        <Column css={{ p: { base: '$16', xs: '$12' } }}>{children}</Column>
       </Column>
     </Column>
   );

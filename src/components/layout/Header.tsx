@@ -1,8 +1,8 @@
 import { useColors, Row } from '@withneutron/quarks-react';
-import { Button } from '../Button';
-import Logo from '../Logo';
-import { MoonIcon } from '../Icons/MoonIcon';
-import { SunIcon } from '../Icons/SunIcon';
+import { Button } from '../core/Button';
+import Logo from '../core/Logo';
+import { MoonIcon } from '../icons/MoonIcon';
+import { SunIcon } from '../icons/SunIcon';
 
 export function Header() {
   const { isDark, toggleColorMode } = useColors();

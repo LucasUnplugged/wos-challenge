@@ -1,7 +1,7 @@
 import { Column, FlexList, FlexListItem } from '@withneutron/quarks-react';
 import { tabList } from '../../utils/tabs';
 import { token } from '@withneutron/quarks';
-import { TabButton } from '../TabButton';
+import { TabButton } from '../core/TabButton';
 import { ReactNode } from 'react';
 import { TabName } from '../../types/stateTypes';
 

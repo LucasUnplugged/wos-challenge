@@ -1,5 +1,5 @@
 import { Column, FlexListItem, Heading, Image, Row, useColors } from '@withneutron/quarks-react';
-import { User } from '../types/stateTypes';
+import { User } from '../../types/stateTypes';
 import { getLowShadow } from '@withneutron/quarks';
 import { ReactNode } from 'react';
 

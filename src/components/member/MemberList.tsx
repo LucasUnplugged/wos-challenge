@@ -1,6 +1,6 @@
 import { Column, FlexList, Heading, Row } from '@withneutron/quarks-react';
-import { EmptyMessage } from './EmptyMessage';
-import { LoaderIcon } from './Icons/LoaderIcon';
+import { EmptyMessage } from '../core/EmptyMessage';
+import { LoaderIcon } from '../icons/LoaderIcon';
 import { ReactNode } from 'react';
 
 export const MemberList = ({

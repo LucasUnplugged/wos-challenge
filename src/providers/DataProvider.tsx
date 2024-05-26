@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useEffect, useRef, useState } from 'react';
+import { ReactNode, createContext, useEffect, useState } from 'react';
 import { TabName, MemberData, MemberStatus, User } from '../types/stateTypes';
 import { memberSorter } from '../utils/members';
 
@@ -21,7 +21,6 @@ export const DataContext = createContext({
 } as DataContextProps);
 
 export function DataProvider({ children }: { children: ReactNode }) {
-  const controller = useRef<AbortController | null>(null);
   const [activeTab, setActiveTab] = useState<TabName>('members');
   const [memberData, setMemberData] = useState<MemberData>([]);
   const [memberStatus, setMemberStatus] = useState<MemberStatus>({});
@@ -54,13 +53,10 @@ export function DataProvider({ children }: { children: ReactNode }) {
   };
 
   useEffect(() => {
-    async function fetchData() {
-      if (controller.current) {
-        controller.current.abort('Re-fetching');
-      }
+    const controller = new AbortController();
 
-      controller.current = new AbortController();
-      const signal = controller.current.signal;
+    async function fetchData() {
+      const signal = controller.signal;
 
       try {
         const response = await fetch('https://wos-challenge-api.onrender.com', {
@@ -85,13 +81,17 @@ export function DataProvider({ children }: { children: ReactNode }) {
 
         setMemberData(members);
         setMemberStatus(memberStatus);
-        controller.current = null;
       } catch (error) {
         console.log('Fetch error: ', error);
-        controller.current = null;
       }
     }
     fetchData();
+
+    return () => {
+      if (controller) {
+        controller.abort('Re-fetching');
+      }
+    };
   }, []);
 
   return (

@@ -6,7 +6,7 @@
   - NOTE: this API uses shorthands akin to `styled-system`; e.g.: `bg` for `background, or `px`and`py`for`padding-left`and`padding-right`.
   - Most of the shorthands should be intuitive, but you can [see the mapping here](https://github.com/withneutron/neutron-ui/blob/main/packages/quarks/src/config/props/mappedProps.ts#L21), if you're curious.
   - This lib includes typography and animations built into it. I chose to use those, but felt that was still in the spirit of the assignment, since I created the entire lib by myself, from scratch.
-  - In terms of _accessibility_, it includes high-contrast color scales using color pairs like `primary9` and `primaryText9` (guaranteed to meet WCAG AA when paired together); as well as helpers for semantic html, like `<Row.Main>`
+  - In terms of _accessibility_, it includes high-contrast color scales using color pairs like `primary9` and `primaryText9` (guaranteed to meet WCAG AA when paired together).
 - I chose to include a mock "delete" feature, with restore. The functionality was quite similar to adding toggling "admin" status, and I felt it better showed the patterns of having action buttons on the right side of the member cards.
 - I chose to sort the users list, both in the grouped and ungrouped views.
 

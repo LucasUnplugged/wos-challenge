@@ -47,7 +47,7 @@ export function Member({
           src={member.photo}
           height='40'
           width='40'
-          css={{ radius: '$round', size: '$40', opacity: isDeleted ? '.5' : '1', transition: 'all .5s' }}
+          css={{ radius: '$round', size: '$40', opacity: isDeleted ? '.5' : '1', transition: 'opacity .5s' }}
         />
         <Column>
           <Row
@@ -63,14 +63,14 @@ export function Member({
                 fontWeight: '$600',
                 mb: '$0',
                 opacity: isDeleted ? '.5' : '1',
-                transition: 'all .5s',
+                transition: 'opacity .5s',
               }}
             >
               {member.first} {member.last}
             </Heading>
             {badge}
           </Row>
-          <Heading as='h3' css={{ typo: '$body', m: '$0', opacity: isDeleted ? '.5' : '1', transition: 'all .5s' }}>
+          <Heading as='h3' css={{ typo: '$body', m: '$0', opacity: isDeleted ? '.5' : '1', transition: 'opacity .5s' }}>
             {member.role}
           </Heading>
         </Column>

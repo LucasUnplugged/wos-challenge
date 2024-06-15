@@ -77,7 +77,8 @@ function App() {
           <link key={key} {...props} />
         ))}
       </Helmet>
-      <Grid.Main
+      <Grid
+        as='main'
         css={{
           w: '100vw',
           minHeight: '100vh',
@@ -117,7 +118,7 @@ function App() {
             </MemberList>
           )}
         </Body>
-      </Grid.Main>
+      </Grid>
     </QuarksProvider>
   );
 }

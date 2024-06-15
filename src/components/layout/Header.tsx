@@ -7,7 +7,8 @@ import { SunIcon } from '../icons/SunIcon';
 export function Header() {
   const { isDark, toggleColorMode } = useColors();
   return (
-    <Row.Header
+    <Row
+      as='header'
       css={{
         bg: '$min',
         boxShadow: '$low',
@@ -22,7 +23,7 @@ export function Header() {
       }}
     >
       <Logo />
-      <Row.Nav css={{ gap: '$32', alignItems: 'center' }}>
+      <Row as='nav' css={{ gap: '$32', alignItems: 'center' }}>
         <Button
           hasIconOnly
           onClick={toggleColorMode}
@@ -30,8 +31,8 @@ export function Header() {
         >
           {isDark ? <SunIcon /> : <MoonIcon />}
         </Button>
-      </Row.Nav>
-    </Row.Header>
+      </Row>
+    </Row>
   );
 }
 Header.displayName = 'Header';

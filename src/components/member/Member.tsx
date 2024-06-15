@@ -54,7 +54,8 @@ export function Member({
               alignItems: 'center',
             }}
           >
-            <Heading.H2
+            <Heading
+              as='h2'
               css={{
                 typo: '$body',
                 fontWeight: '$600',
@@ -64,12 +65,12 @@ export function Member({
               }}
             >
               {member.first} {member.last}
-            </Heading.H2>
+            </Heading>
             {badge}
           </Row>
-          <Heading.H3 css={{ typo: '$body', m: '$0', opacity: isDeleted ? '.5' : '1', transition: 'all .5s' }}>
+          <Heading as='h3' css={{ typo: '$body', m: '$0', opacity: isDeleted ? '.5' : '1', transition: 'all .5s' }}>
             {member.role}
-          </Heading.H3>
+          </Heading>
         </Column>
       </Row>
       <Row

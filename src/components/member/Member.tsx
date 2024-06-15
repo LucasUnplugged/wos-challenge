@@ -45,6 +45,8 @@ export function Member({
       >
         <Image
           src={member.photo}
+          height='40'
+          width='40'
           css={{ radius: '$round', size: '$40', opacity: isDeleted ? '.5' : '1', transition: 'all .5s' }}
         />
         <Column>
